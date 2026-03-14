@@ -1,0 +1,15 @@
+name: Software-Defined Networking
+description: Network architecture approach that enables dynamic, programmatically
+  efficient network configuration to improve performance and monitoring by decoupling
+  the network control plane from the data plane. It is a key component of modern cloud-native
+  architectures and digital transformation strategies.
+url: https://en.wikipedia.org/wiki/Software-defined_networking
+tags:
+- Networking
+- Cloud Infrastructure
+- Virtualization
+- Network Architecture
+created: '2025'
+modified: '2025'
+apis: []
+common: []
