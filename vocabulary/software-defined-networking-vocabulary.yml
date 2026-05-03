@@ -1,0 +1,112 @@
+vocabulary:
+  name: Software-Defined Networking Vocabulary
+  description: >-
+    Core vocabulary and taxonomy for Software-Defined Networking (SDN),
+    covering control plane architecture, data plane management, controller
+    APIs, and network programmability concepts.
+  version: '1.0'
+  created: '2026-05-02'
+  modified: '2026-05-02'
+
+domains:
+  - name: SDN Architecture
+    description: Fundamental SDN architectural concepts
+    terms:
+      - term: Software-Defined Networking
+        definition: >-
+          A network architecture approach that decouples the control plane
+          (decision-making logic) from the data plane (packet forwarding),
+          enabling centralized, programmable network management.
+      - term: Control Plane
+        definition: >-
+          The layer of the SDN architecture responsible for making routing
+          decisions and managing network state, hosted in the SDN controller.
+      - term: Data Plane
+        definition: >-
+          The layer responsible for forwarding packets based on flow rules
+          installed by the SDN controller, implemented in switches and routers.
+      - term: SDN Controller
+        definition: >-
+          The centralized software application that manages the network,
+          maintains network state, and programs data plane devices via
+          southbound APIs like OpenFlow.
+      - term: Northbound API
+        definition: >-
+          The interface between the SDN controller and network applications,
+          typically implemented as REST APIs (RESTCONF) enabling applications
+          to configure routing, security, and QoS policies.
+      - term: Southbound API
+        definition: >-
+          The interface between the SDN controller and network devices,
+          using protocols like OpenFlow, NETCONF, and OVSDB to program
+          forwarding rules on switches and routers.
+
+  - name: SDN Protocols
+    description: Key protocols used in SDN implementations
+    terms:
+      - term: OpenFlow
+        definition: >-
+          The foundational SDN southbound protocol enabling the controller
+          to program flow tables on OpenFlow-enabled switches, defining
+          match-action rules for packet forwarding.
+      - term: RESTCONF
+        definition: >-
+          An HTTP-based protocol (RFC 8040) that provides a REST interface
+          to YANG-modeled data in SDN controllers like OpenDaylight, enabling
+          northbound API access to network configuration and state.
+      - term: NETCONF
+        definition: >-
+          An IETF standard protocol (RFC 6241) for network device configuration
+          management using XML-encoded data, commonly used as an SDN southbound
+          interface for traditional network devices.
+      - term: YANG
+        definition: >-
+          A data modeling language (RFC 6020) used to model configuration and
+          state data for network devices and protocols, forming the foundation
+          for RESTCONF and NETCONF data models.
+      - term: OVSDB
+        definition: >-
+          Open vSwitch Database Management Protocol, a southbound interface
+          for managing Open vSwitch (OVS) virtual switches in SDN deployments.
+
+  - name: Network Topology
+    description: Network topology and resource concepts
+    terms:
+      - term: Topology
+        definition: >-
+          The logical or physical arrangement of nodes and links in the network,
+          maintained by the SDN controller through network discovery protocols.
+      - term: Node
+        definition: >-
+          A network device (switch, router, or host) in the SDN topology
+          identified by a unique node ID.
+      - term: Link
+        definition: >-
+          A connection between two termination points (ports) on network nodes,
+          representing a physical or logical network path.
+      - term: Flow Rule
+        definition: >-
+          A match-action entry installed in a network device's flow table
+          that determines how packets matching specific criteria are forwarded.
+      - term: Flow Table
+        definition: >-
+          A table in an OpenFlow-enabled switch containing flow rules that
+          the SDN controller has programmed for packet forwarding decisions.
+
+  - name: SDN Controllers
+    description: Key open-source SDN controller platforms
+    terms:
+      - term: OpenDaylight
+        definition: >-
+          An open-source SDN controller platform hosted at the Linux Foundation,
+          providing a RESTCONF-based northbound API and supporting OpenFlow,
+          NETCONF, and other southbound protocols.
+      - term: ONOS
+        definition: >-
+          Open Network Operating System, an open-source SDN controller
+          designed for service provider networks, providing REST APIs for
+          topology, flows, hosts, and device management.
+      - term: Floodlight
+        definition: >-
+          An open-source OpenFlow controller providing REST APIs for network
+          management, developed by Big Switch Networks.

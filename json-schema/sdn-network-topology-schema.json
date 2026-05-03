@@ -1,0 +1,183 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/software-defined-networking/json-schema/sdn-network-topology-schema.json",
+  "title": "SDN Network Topology",
+  "description": "JSON Schema for Software-Defined Networking (SDN) network topology representation, compatible with OpenDaylight and ONOS REST API responses",
+  "type": "object",
+  "properties": {
+    "topology": {
+      "$ref": "#/definitions/Topology"
+    }
+  },
+  "definitions": {
+    "Topology": {
+      "type": "object",
+      "properties": {
+        "topology-id": {
+          "type": "string",
+          "description": "Unique identifier for the topology"
+        },
+        "node": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Node"
+          },
+          "description": "List of network nodes (switches, routers, hosts)"
+        },
+        "link": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "description": "List of links connecting topology nodes"
+        }
+      }
+    },
+    "Node": {
+      "type": "object",
+      "required": ["node-id"],
+      "properties": {
+        "node-id": {
+          "type": "string",
+          "description": "Unique identifier for the network node"
+        },
+        "termination-point": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TerminationPoint"
+          },
+          "description": "Physical or logical ports on the node"
+        },
+        "node-type": {
+          "type": "string",
+          "enum": ["switch", "router", "host", "controller"],
+          "description": "Type of network node"
+        },
+        "ip-address": {
+          "type": "string",
+          "format": "ipv4",
+          "description": "Management IP address of the node"
+        },
+        "mac-address": {
+          "type": "string",
+          "pattern": "^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$",
+          "description": "MAC address of the node"
+        }
+      }
+    },
+    "TerminationPoint": {
+      "type": "object",
+      "properties": {
+        "tp-id": {
+          "type": "string",
+          "description": "Termination point (port) identifier"
+        },
+        "port-number": {
+          "type": "integer",
+          "description": "OpenFlow port number"
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "required": ["link-id", "source", "destination"],
+      "properties": {
+        "link-id": {
+          "type": "string",
+          "description": "Unique link identifier"
+        },
+        "source": {
+          "$ref": "#/definitions/LinkEndpoint"
+        },
+        "destination": {
+          "$ref": "#/definitions/LinkEndpoint"
+        },
+        "bandwidth": {
+          "type": "integer",
+          "description": "Link bandwidth in Mbps"
+        }
+      }
+    },
+    "LinkEndpoint": {
+      "type": "object",
+      "properties": {
+        "source-node": {
+          "type": "string",
+          "description": "Node ID of the link endpoint"
+        },
+        "source-tp": {
+          "type": "string",
+          "description": "Termination point (port) ID of the link endpoint"
+        }
+      }
+    },
+    "FlowRule": {
+      "type": "object",
+      "required": ["deviceId", "priority"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Flow rule identifier"
+        },
+        "deviceId": {
+          "type": "string",
+          "description": "Device (switch) the flow rule applies to"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "Flow rule priority (higher overrides lower)"
+        },
+        "tableId": {
+          "type": "integer",
+          "description": "Flow table ID"
+        },
+        "selector": {
+          "$ref": "#/definitions/FlowSelector"
+        },
+        "treatment": {
+          "$ref": "#/definitions/FlowTreatment"
+        }
+      }
+    },
+    "FlowSelector": {
+      "type": "object",
+      "properties": {
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["ETH_TYPE", "IPV4_DST", "IPV4_SRC", "IN_PORT", "ETH_DST", "ETH_SRC"]
+              },
+              "ethType": {"type": "string"},
+              "ip": {"type": "string"},
+              "port": {"type": "integer"}
+            }
+          }
+        }
+      }
+    },
+    "FlowTreatment": {
+      "type": "object",
+      "properties": {
+        "instructions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["OUTPUT", "DROP", "GOTO_TABLE", "METER"]
+              },
+              "port": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

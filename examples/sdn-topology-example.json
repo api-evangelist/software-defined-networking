@@ -1,0 +1,49 @@
+{
+  "title": "SDN Network Topology - Example Response",
+  "description": "Example of a network topology response from an OpenDaylight RESTCONF or ONOS REST API SDN controller",
+  "source": "OpenDaylight RESTCONF API / ONOS REST API",
+  "data": {
+    "network-topology": {
+      "topology": [
+        {
+          "topology-id": "flow:1",
+          "node": [
+            {
+              "node-id": "openflow:1",
+              "node-type": "switch",
+              "ip-address": "192.168.1.101",
+              "termination-point": [
+                {"tp-id": "openflow:1:1", "port-number": 1},
+                {"tp-id": "openflow:1:2", "port-number": 2},
+                {"tp-id": "openflow:1:LOCAL", "port-number": 4294967294}
+              ]
+            },
+            {
+              "node-id": "openflow:2",
+              "node-type": "switch",
+              "ip-address": "192.168.1.102",
+              "termination-point": [
+                {"tp-id": "openflow:2:1", "port-number": 1},
+                {"tp-id": "openflow:2:2", "port-number": 2}
+              ]
+            }
+          ],
+          "link": [
+            {
+              "link-id": "openflow:1:2_openflow:2:1",
+              "source": {
+                "source-node": "openflow:1",
+                "source-tp": "openflow:1:2"
+              },
+              "destination": {
+                "source-node": "openflow:2",
+                "source-tp": "openflow:2:1"
+              },
+              "bandwidth": 1000
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

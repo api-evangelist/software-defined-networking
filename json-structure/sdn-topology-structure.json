@@ -1,0 +1,50 @@
+{
+  "title": "Software-Defined Networking - Network Topology Structure",
+  "description": "JSON Structure documentation for SDN network topology and flow rule resources",
+  "version": "1.0",
+  "source": "https://opennetworking.org/sdn-definition/",
+  "structures": [
+    {
+      "name": "Topology",
+      "description": "A network topology containing nodes and links, as returned by SDN controllers",
+      "fields": [
+        {"name": "topology-id", "type": "string", "required": false, "description": "Unique topology identifier"},
+        {"name": "node", "type": "array<Node>", "required": false, "description": "Network nodes (switches, routers, hosts)"},
+        {"name": "link", "type": "array<Link>", "required": false, "description": "Links between nodes"}
+      ]
+    },
+    {
+      "name": "Node",
+      "description": "A network device in the SDN topology",
+      "fields": [
+        {"name": "node-id", "type": "string", "required": true, "description": "Unique node identifier"},
+        {"name": "node-type", "type": "enum[switch|router|host|controller]", "required": false, "description": "Device type"},
+        {"name": "ip-address", "type": "ipv4", "required": false, "description": "Management IP address"},
+        {"name": "mac-address", "type": "string", "required": false, "description": "MAC address"},
+        {"name": "termination-point", "type": "array<TerminationPoint>", "required": false, "description": "Ports/interfaces"}
+      ]
+    },
+    {
+      "name": "Link",
+      "description": "A network connection between two topology nodes",
+      "fields": [
+        {"name": "link-id", "type": "string", "required": true, "description": "Unique link identifier"},
+        {"name": "source", "type": "LinkEndpoint", "required": true, "description": "Source node and port"},
+        {"name": "destination", "type": "LinkEndpoint", "required": true, "description": "Destination node and port"},
+        {"name": "bandwidth", "type": "integer", "required": false, "description": "Link bandwidth in Mbps"}
+      ]
+    },
+    {
+      "name": "FlowRule",
+      "description": "An OpenFlow flow rule installed on a network device",
+      "fields": [
+        {"name": "id", "type": "string", "required": false, "description": "Flow rule identifier"},
+        {"name": "deviceId", "type": "string", "required": true, "description": "Target device identifier"},
+        {"name": "priority", "type": "integer", "required": true, "description": "Flow priority (0-65535)"},
+        {"name": "tableId", "type": "integer", "required": false, "description": "Flow table number"},
+        {"name": "selector", "type": "FlowSelector", "required": false, "description": "Match criteria"},
+        {"name": "treatment", "type": "FlowTreatment", "required": false, "description": "Action instructions"}
+      ]
+    }
+  ]
+}

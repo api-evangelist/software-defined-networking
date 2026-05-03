@@ -1,0 +1,68 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "sdn": "https://opennetworking.org/sdn/ns#",
+    "nml": "http://schemas.ogf.org/nml/2013/05/base#",
+    "Topology": {
+      "@id": "nml:Topology",
+      "@type": "@id"
+    },
+    "Node": {
+      "@id": "nml:Node",
+      "@type": "@id"
+    },
+    "Link": {
+      "@id": "nml:Link",
+      "@type": "@id"
+    },
+    "TerminationPoint": {
+      "@id": "nml:Port",
+      "@type": "@id"
+    },
+    "FlowRule": {
+      "@id": "sdn:FlowRule",
+      "@type": "@id"
+    },
+    "SDNController": {
+      "@id": "sdn:Controller",
+      "@type": "@id"
+    },
+    "topology-id": {
+      "@id": "schema:identifier"
+    },
+    "node-id": {
+      "@id": "schema:identifier"
+    },
+    "link-id": {
+      "@id": "schema:identifier"
+    },
+    "ip-address": {
+      "@id": "sdn:ipAddress"
+    },
+    "mac-address": {
+      "@id": "sdn:macAddress"
+    },
+    "bandwidth": {
+      "@id": "sdn:bandwidth"
+    },
+    "priority": {
+      "@id": "sdn:priority",
+      "@type": "xsd:integer"
+    },
+    "OpenFlow": {
+      "@id": "sdn:OpenFlow"
+    },
+    "RESTCONF": {
+      "@id": "sdn:RESTCONF"
+    },
+    "NETCONF": {
+      "@id": "sdn:NETCONF"
+    },
+    "OpenDaylight": {
+      "@id": "sdn:OpenDaylightController"
+    },
+    "ONOS": {
+      "@id": "sdn:ONOSController"
+    }
+  }
+}
