@@ -71,7 +71,7 @@ common:
     url: https://opennetworking.org/
   - type: Reference
     url: https://en.wikipedia.org/wiki/Software-defined_networking
-  - type: Standard
+  - type: Standards
     url: https://datatracker.ietf.org/doc/html/rfc7426
   - type: Reference
     url: https://www.ciena.com/insights/articles/5-key-APIs-to-enable-the-concept-of-SDN-based-virtual-networks.html
