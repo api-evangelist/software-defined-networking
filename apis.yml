@@ -67,6 +67,8 @@ apis:
         url: https://onosproject.org/
 
 common:
+  - type: DomainSecurity
+    url: security/software-defined-networking-domain-security.yml
   - type: Website
     url: https://opennetworking.org/
   - type: Reference
