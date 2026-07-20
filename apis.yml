@@ -1,5 +1,6 @@
 aid: software-defined-networking
 name: Software-Defined Networking
+kind: topic
 description: >-
   Software-Defined Networking (SDN) is a network architecture approach that
   decouples the network control plane from the data forwarding plane, enabling
