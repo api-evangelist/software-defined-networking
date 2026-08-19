@@ -33,7 +33,7 @@ tags:
   - ONOS
 created: '2026-05-02'
 modified: '2026-05-02'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: software-defined-networking:opendaylight-restconf
     name: OpenDaylight RESTCONF API
