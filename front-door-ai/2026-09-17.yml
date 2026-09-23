@@ -1,0 +1,27 @@
+# Front Door AI Index — software-defined-networking — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: software-defined-networking
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.opendaylight.org
+  final_host: opendaylight.org
+  ownership: own
+  owner: software-defined-networking
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 3
+  host_score: 3
+  density: 1.91
+  words: 1571
+  tiers:
+    agentic: 0
+    core: 3
+    model: 0
+  ambiguous: 3
+  top_terms:
+    automation: 3
+    AI: 2
+    ML: 1
