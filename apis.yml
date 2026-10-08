@@ -92,6 +92,12 @@ apis:
         url: https://onosproject.org/
 
 common:
+  - type: Plans
+    url: plans/software-defined-networking-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/software-defined-networking-rate-limits.yml
+  - type: FinOps
+    url: finops/software-defined-networking-finops.yml
   - type: DomainSecurity
     url: security/software-defined-networking-domain-security.yml
   - type: Website
